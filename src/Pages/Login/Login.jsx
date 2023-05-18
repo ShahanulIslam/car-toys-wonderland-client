@@ -1,6 +1,9 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
     const { signIn, googleLogin } = useContext(AuthContext);
@@ -14,9 +17,10 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
+                toast.success("User logged in successfully!!")
             })
             .catch(error => {
-                console.log(error)
+                toast.error(error.message)
             })
     }
 
@@ -24,18 +28,20 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 const createdUser = result.user;
-                console.log(createdUser)
+                console.log(createdUser);
+                toast.success("User logged in successfully!!")
             })
             .catch(error => {
-                console.log(error)
+                toast.error(error.message)
             })
 
     }
 
     return (
         <div className="hero min-h-screen bg-base-200 my-5">
+            <ToastContainer></ToastContainer>
             <div className="hero-content flex ">
-                <div className="card w-full max-w-sm shadow-2xl bg-base-100 p-5">
+                <div className="card w-full max-w-sm shadow-2xl bg-base-100 p-4">
                     <h1 className="text-4xl font-bold text-center">Login now!</h1>
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
@@ -55,10 +61,10 @@ const Login = () => {
                         </div>
                     </form>
                     <div className="divider">OR</div>
-                    <div className="form-control ">
+                    <div className="form-control mx-6 ">
                         <button onClick={handleGoogleLogin} className="btn btn-primary text-white">Google Sign-in</button>
                     </div>
-                    <p><small>New to Toy car wonderland? <Link to="/register">Register</Link></small></p>
+                    <p className="text-center my-3"><small>New to Toy car wonderland? <Link to="/register">Register</Link></small></p>
                 </div>
             </div>
         </div>
