@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaGoogle } from "react-icons/fa";
 
 
 const Login = () => {
@@ -57,12 +58,12 @@ const Login = () => {
                             <input type="password" required placeholder="password" name="password" className="input input-bordered" />
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-primary" type="submit" value="Login" />
+                            <input className="btn btn-info text-white" type="submit" value="Login" />
                         </div>
                     </form>
                     <div className="divider">OR</div>
                     <div className="form-control mx-6 ">
-                        <button onClick={handleGoogleLogin} className="btn btn-primary text-white">Google Sign-in</button>
+                        <button onClick={handleGoogleLogin} className="btn btn-info text-white"><FaGoogle size={15} className="mr-2"></FaGoogle> Google Sign-in</button>
                     </div>
                     <p className="text-center my-3"><small>New to Toy car wonderland? <Link to="/register">Register</Link></small></p>
                 </div>

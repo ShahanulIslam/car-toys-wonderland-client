@@ -4,6 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FaGoogle } from "react-icons/fa";
 
 const Register = () => {
     const { createUser, googleLogin } = useContext(AuthContext)
@@ -81,12 +82,13 @@ const Register = () => {
                             <input type="text" name='photo' placeholder="photo url" required className="input input-bordered" />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary text-white">Register</button>
+                            <button className="btn btn-info text-white">Register</button>
                         </div>
                     </form>
                     <div className="divider">OR</div>
                     <div className="form-control mx-6">
-                        <button onClick={handleGoogleLogin} className="btn btn-primary text-white">Google Sign-in</button>
+
+                        <button onClick={handleGoogleLogin} className="btn btn-info text-white"><FaGoogle size={15} className="mr-2"></FaGoogle> Google Sign-in</button>
                     </div>
                     <p className="text-center my-3"><small>Already have an account? <Link to="/login">Login</Link> </small></p>
                 </div>
