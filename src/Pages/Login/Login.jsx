@@ -3,13 +3,33 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 
 const Login = () => {
-    const { } = useContext(AuthContext);
+    const { signIn, googleLogin } = useContext(AuthContext);
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        console.log(email, password);
+        signIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                const createdUser = result.user;
+                console.log(createdUser)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
     }
 
     return (
@@ -33,12 +53,12 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Login" />
                         </div>
-                        <div className="divider">OR</div>
-                        <div className="form-control ">
-                            <button className="btn btn-primary text-white">Google Sign-in</button>
-                        </div>
                     </form>
-                    <p>New to Toy car wonderland? <Link to="/register">Register</Link></p>
+                    <div className="divider">OR</div>
+                    <div className="form-control ">
+                        <button onClick={handleGoogleLogin} className="btn btn-primary text-white">Google Sign-in</button>
+                    </div>
+                    <p><small>New to Toy car wonderland? <Link to="/register">Register</Link></small></p>
                 </div>
             </div>
         </div>

@@ -1,6 +1,49 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
+    const { createUser, googleLogin } = useContext(AuthContext)
+    const handleRegister = event => {
+        event.preventDefault()
+        const form = event.target;
+        const displayName = form.name.value;
+        const photoUrl = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        // console.log(name, photo, email, password)
+
+        createUser(email, password, displayName, photoUrl)
+            .then((result) => {
+                // User created successfully, update profile
+                const loggedUser = result.user;
+                return updateProfile(loggedUser, {
+                    displayName: displayName,
+                    photoURL: photoUrl,
+                }).then(() => {
+                    console.log("Profile updated successfully");
+                    console.log(loggedUser);
+                    form.reset();
+                });
+            })
+            .catch((error) => {
+                console.log("Error creating user:", error.message);
+            });
+    }
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                const createdUser = result.user;
+                console.log(createdUser)
+            })
+            .catch(error => {
+                console.log(error)
+            })
+
+    }
+
     return (
         <div className="hero min-h-screen bg-base-200">
             <div className="hero-content flex-col">
@@ -8,7 +51,7 @@ const Register = () => {
                     <h1 className="text-5xl font-bold my-5">Register Here</h1>
                 </div>
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <form className="card-body">
+                    <form onSubmit={handleRegister} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
@@ -36,12 +79,12 @@ const Register = () => {
                         <div className="form-control mt-6">
                             <button className="btn btn-primary text-white">Register</button>
                         </div>
-                        <div className="divider">OR</div>
-                        <div className="form-control">
-                            <button className="btn btn-primary text-white">Google Sign-in</button>
-                        </div>
-                        <p><small>Already have an account? <Link to="/login">Login</Link> </small></p>
                     </form>
+                    <div className="divider">OR</div>
+                    <div className="form-control">
+                        <button onClick={handleGoogleLogin} className="btn btn-primary text-white">Google Sign-in</button>
+                    </div>
+                    <p><small>Already have an account? <Link to="/login">Login</Link> </small></p>
                 </div>
             </div>
         </div>
