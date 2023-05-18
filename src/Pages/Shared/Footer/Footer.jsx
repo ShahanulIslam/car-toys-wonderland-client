@@ -6,14 +6,13 @@ const Footer = () => {
             <footer className="footer p-10 bg-base-200 text-base-content">
                 <div className="space-y-2">
                     <img src={logo} className="w-3/5" alt="Company Logo" />
-                    <p className="font-bold">Toys Car Wonderland<br />Providing reliable tech since 2012<br />Contact: info@toyscarwonderland.com<br />Address: 456 Street, City, Country</p>
+                    <p className="font-bold">Toys Car Wonderland<br />Providing reliable tech since 2012<br />Address: 456 Street, Dhaka, BAngladesh</p>
                 </div>
                 <div>
-                    <span className="footer-title">Company</span>
-                    <a className="link link-hover" href="#">About us</a>
-                    <a className="link link-hover" href="#">Contact</a>
-                    <a className="link link-hover" href="#">Jobs</a>
-                    <a className="link link-hover" href="#">Press kit</a>
+                    <span className="footer-title">Contact</span>
+                    <p>456 Street, Dhaka,<br /> BAngladesh</p>
+                    <p>Phone: 123-456-7890</p>
+                    <p>Email:info@toyscarwonderland.com</p>
                 </div>
                 <div>
                     <span className="footer-title">Legal</span>
