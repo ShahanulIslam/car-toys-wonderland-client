@@ -1,5 +1,4 @@
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import Swal from 'sweetalert2'
 
 const AddToys = () => {
     const handleAddToy = (event) => {
@@ -28,16 +27,18 @@ const AddToys = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if(data.acknowledged == true)
-                    {
-                    // toast("Added product successfully")
+                if (data.acknowledged == true) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Toy Added Successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
                 }
             })
     }
-
     return (
         <div>
-            <ToastContainer></ToastContainer>
             <form onSubmit={handleAddToy} className="card-body">
                 <div className="flex w-3/5 mx-auto gap-4">
                     <div className="form-control w-1/2">
