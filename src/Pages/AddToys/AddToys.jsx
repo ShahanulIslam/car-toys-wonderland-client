@@ -1,3 +1,5 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddToys = () => {
     const handleAddToy = (event) => {
@@ -5,16 +7,15 @@ const AddToys = () => {
         const form = event.target;
         const picture = form.picture.value;
         const name = form.name.value;
-        const sellerName = form.sellerName.value;
-        const sellerEmail = form.sellerEmail.value;
-        const subcategory = form.subcategory.value;
+        const seller = form.sellerName.value;
+        const seller_email = form.email.value;
+        const category = form.subcategory.value;
         const price = form.price.value;
         const rating = form.rating.value;
         const quantity = form.rating.value;
         const description = form.rating.value;
         const addToy = {
-            picture, name, sellerName, sellerEmail, subcategory, price, quantity, description,
-            rating
+            category, picture, name, price, rating, quantity, seller, description, seller_email
         }
         console.log(addToy)
         fetch("http://localhost:3500/carToys", {
@@ -24,14 +25,19 @@ const AddToys = () => {
             },
             body: JSON.stringify(addToy)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.acknowledged == true)
+                    {
+                    // toast("Added product successfully")
+                }
+            })
     }
 
     return (
         <div>
+            <ToastContainer></ToastContainer>
             <form onSubmit={handleAddToy} className="card-body">
                 <div className="flex w-3/5 mx-auto gap-4">
                     <div className="form-control w-1/2">
@@ -42,7 +48,7 @@ const AddToys = () => {
                     </div>
                     <div className="form-control w-1/2">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text">Toy Name</span>
                         </label>
                         <input type="text" required placeholder="Name" name="name" className="input input-bordered" />
                     </div>
@@ -58,7 +64,7 @@ const AddToys = () => {
                         <label className="label">
                             <span className="label-text">Seller Email</span>
                         </label>
-                        <input type="email" placeholder="Seller Email" name="sellerEmail" className="input input-bordered" />
+                        <input type="email" placeholder="Seller Email" name="email" className="input input-bordered" />
                     </div>
                 </div >
                 <div className="flex w-3/5 mx-auto gap-4 ">
