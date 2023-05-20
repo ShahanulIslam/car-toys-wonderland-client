@@ -11,7 +11,7 @@ const Alltoys = () => {
 
     useEffect(() => {
         const updatedFilteredToys = allToys.filter((toy) => {
-            const name = toy.name || ''; // Provide a default empty string if the toyName property is undefined
+            const name = toy.name || ''; 
             return name.toLowerCase().includes(search.toLowerCase());
         });
         setFilter(updatedFilteredToys);
@@ -26,8 +26,6 @@ const Alltoys = () => {
     };
 
     const displayedToys = filter.slice(0, limit);
-
-  
 
     return (
 

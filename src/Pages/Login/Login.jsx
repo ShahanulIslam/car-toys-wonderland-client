@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -8,6 +8,11 @@ import { FaGoogle } from "react-icons/fa";
 
 const Login = () => {
     const { signIn, googleLogin } = useContext(AuthContext);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || "/";
+
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -17,11 +22,12 @@ const Login = () => {
         signIn(email, password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser)
-                toast.success("User logged in successfully!!")
+                console.log(loggedUser);
+                toast.success("User logged in successfully!!");
+                navigate(from, { replace: true });
             })
             .catch(error => {
-                toast.error(error.message)
+                toast.error(error.message);
             })
     }
 
@@ -30,10 +36,11 @@ const Login = () => {
             .then(result => {
                 const createdUser = result.user;
                 console.log(createdUser);
-                toast.success("User logged in successfully!!")
+                toast.success("User logged in successfully!!");
+                navigate(from, { replace: true });
             })
             .catch(error => {
-                toast.error(error.message)
+                toast.error(error.message);
             })
 
     }

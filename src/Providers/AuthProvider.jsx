@@ -10,11 +10,11 @@ const googleProvider = new GoogleAuthProvider()
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState();
     const [loading, setLoading] = useState(true);
+
     const createUser = (email, password, displayName, photoUrl) => {
         setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password).then(
             (userCredential) => {
-                // Set display name and photo URL
                 return updateProfile(userCredential.user, {
                     displayName,
                     photoUrl,
@@ -26,11 +26,13 @@ const AuthProvider = ({ children }) => {
     };
 
     const signIn = (email, password) => {
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    const googleLogin =() =>{
-        return signInWithPopup(auth,googleProvider)
+    const googleLogin = () => {
+        setLoading(true)
+        return signInWithPopup(auth, googleProvider)
     }
 
     useEffect(() => {
@@ -44,7 +46,7 @@ const AuthProvider = ({ children }) => {
         }
     }, []);
 
-    const logOut = () =>{
+    const logOut = () => {
         return signOut(auth);
     }
 
