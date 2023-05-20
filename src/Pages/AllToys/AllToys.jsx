@@ -32,10 +32,9 @@ const Alltoys = () => {
     return (
 
         <div>
-            <h1 className="text-4xl">Your bookings {displayedToys.length}</h1>
             <div className="overflow-x-auto w-full">
 
-                <div className="mt-4">
+                <div className="mt-4 text-center">
                     <input
                         type="text"
                         placeholder="Search by Toy Name"
@@ -63,14 +62,14 @@ const Alltoys = () => {
 
                 <table className="table w-full">
                     <thead>
-                        <tr>
+                        <tr className='text-center'>
                             <th>Image</th>
-                            <th>Seller</th>
-                            <th>Name</th>
-                            <th>Quantity</th>
+                            <th>Seller Name</th>
+                            <th>Toy Name</th>
+                            <th>Sub Category</th>
                             <th>Price</th>
-                            <th>Ratings</th>
-                            <th></th>
+                            <th>Available Quantity</th>
+                            <th>View</th>
                         </tr>
                     </thead>
                     <tbody>

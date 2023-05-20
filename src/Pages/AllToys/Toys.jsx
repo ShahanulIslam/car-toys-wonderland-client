@@ -1,17 +1,15 @@
 import { Link } from 'react-router-dom';
 
-const Toys = ({toy}) => {
-    const { _id, seller,price, rating, name, quantity, picture } = toy;
+const Toys = ({ toy }) => {
+    const { _id, seller, price,category, rating, name, quantity, picture } = toy;
     console.log(toy)
     return (
         <tr className='text-center'>
-
             <td>
-                <div className="avatar">
-                    <div className="rounded w-24 h-24">
-                        {<img src={picture} />}
-                    </div>
-                </div>
+                <figure className='avatar rounded w-40 h-24'>
+                    <img src={picture} alt="" />
+                </figure>
+
             </td>
             <td>
                 {seller}
@@ -19,11 +17,11 @@ const Toys = ({toy}) => {
             <td>
                 {name}
             </td>
-            <td>{quantity}</td>
+            <td>{category}</td>
             <td> {price}</td>
-            <td>{rating}</td>
+            <td>{quantity}</td>
             <th className='text-center'>
-                <Link to={`/alltoys/${_id}`}><button className='border-0 btn btn-outline'>View Details</button></Link>
+                <Link to={`/alltoys/${_id}`}><button className='border-0 btn btn-info'>View Details</button></Link>
             </th>
         </tr>
     );
