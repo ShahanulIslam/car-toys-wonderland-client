@@ -5,7 +5,6 @@ import Swal from 'sweetalert2';
 const Toy = ({ toy, handleDelete }) => {
     const { _id, seller, price, category, rating, name, quantity, picture } = toy;
 
-
     return (
         <tr className='text-center'>
             <td>
@@ -32,7 +31,7 @@ const Toy = ({ toy, handleDelete }) => {
                 <Link to={`/alltoys/${_id}`}><button className='btn bg-[#e6c6d8] border-0 text-black hover:text-white'>View Details</button></Link>
             </th>
             <th className='text-center'>
-                <Link><button className='btn bg-[#e6c6d8] border-0 text-black hover:text-white'>Update</button></Link>
+                <Link to={`/update/${_id}`}><button className='btn bg-[#e6c6d8] border-0 text-black hover:text-white'>Update</button></Link>
             </th>
         </tr>
     );

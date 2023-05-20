@@ -53,9 +53,7 @@ const MyToys = () => {
                     <thead>
                         <tr className='text-center'>
                             <th>
-                                <label>
                                     Delete
-                                </label>
                             </th>
                             <th>Image</th>
                             <th>Seller Name</th>

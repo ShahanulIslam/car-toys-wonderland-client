@@ -11,8 +11,8 @@ const AddToys = () => {
         const category = form.subcategory.value;
         const price = form.price.value;
         const rating = form.rating.value;
-        const quantity = form.rating.value;
-        const description = form.rating.value;
+        const quantity = form.quantity.value;
+        const description = form.description.value;
         const addToy = {
             category, picture, name, price, rating, quantity, seller, description, seller_email
         }
@@ -27,7 +27,7 @@ const AddToys = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                if (data.acknowledged == true) {
+                if (data.acknowledged) {
                     Swal.fire({
                         title: 'Success!',
                         text: 'Toy Added Successfully',
