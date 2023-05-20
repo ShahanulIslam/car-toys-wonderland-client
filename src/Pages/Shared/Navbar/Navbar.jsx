@@ -14,6 +14,12 @@ const Navbar = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/allToys">All Toys</Link></li>
         <li><Link to="/blog">Blog</Link></li>
+        {
+            user && <>
+                <li><Link to="/myToys">My Toys</Link></li>
+                <li><Link to="/addToys">Add A Toys</Link></li>
+            </>
+        }
     </>
     return (
         <div className="navbar bg-base-100 h-28 mb-4">
@@ -39,9 +45,9 @@ const Navbar = () => {
                 <div>{user ?
                     <div className='flex gap-2 md:gap-4'>
                         <img title={user.displayName} className='rounded-full w-11 h-11' src={user.photoURL} alt="" />
-                        <button onClick={handleLogOut} className='btn'>Logout</button>
+                        <button onClick={handleLogOut} className='btn bg-[#e6c6d8] border-0 text-black hover:text-white'>Logout</button>
                     </div> :
-                    <Link to='/login' className="btn">Login</Link>
+                    <Link to='/login' className="btn bg-[#e6c6d8] border-0 text-black hover:text-white">Login</Link>
                 }</div>
             </div>
         </div>

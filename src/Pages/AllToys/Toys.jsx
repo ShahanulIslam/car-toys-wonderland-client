@@ -21,7 +21,7 @@ const Toys = ({ toy }) => {
             <td> {price}</td>
             <td>{quantity}</td>
             <th className='text-center'>
-                <Link to={`/alltoys/${_id}`}><button className='border-0 btn btn-info'>View Details</button></Link>
+                <Link to={`/alltoys/${_id}`}><button className='btn bg-[#e6c6d8] border-0 text-black hover:text-white'>View Details</button></Link>
             </th>
         </tr>
     );

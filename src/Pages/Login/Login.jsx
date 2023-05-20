@@ -65,12 +65,12 @@ const Login = () => {
                             <input type="password" required placeholder="password" name="password" className="input input-bordered" />
                         </div>
                         <div className="form-control mt-6">
-                            <input className="btn btn-info text-white" type="submit" value="Login" />
+                            <input className="btn bg-[#e6c6d8] border-0 text-black hover:text-white" type="submit" value="Login" />
                         </div>
                     </form>
                     <div className="divider">OR</div>
                     <div className="form-control mx-6 ">
-                        <button onClick={handleGoogleLogin} className="btn btn-info text-white"><FaGoogle size={15} className="mr-2"></FaGoogle> Google Sign-in</button>
+                        <button onClick={handleGoogleLogin} className="btn bg-[#e6c6d8] border-0 text-black hover:text-white"><FaGoogle size={15} className="mr-2"></FaGoogle> Google Sign-in</button>
                     </div>
                     <p className="text-center my-3"><small>New to Toy car wonderland? <Link to="/register">Register</Link></small></p>
                 </div>

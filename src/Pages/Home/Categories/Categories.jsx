@@ -23,7 +23,7 @@ const Categories = () => {
               key={category}
               className={`px-4 py-2 mr-2 rounded-md cursor-pointer mb-2 ${activeCategory === category ? 'bg-blue-500 text-white' : ''
                 }`}
-              selectedClassName="btn-info text-white"
+              selectedClassName="bg-[#e6c6d8] border-0 text-black hover:text-white"
               onClick={() => setActiveCategory(category)}
             >
               {category}
@@ -46,7 +46,7 @@ const Categories = () => {
                     </div>
                     <div className='text-end'>
                       <Link to={`/categories/${toy._id}`}>
-                        <button className="btn-info text-white px-4 py-2 rounded-md mt-4">View Details</button>
+                        <button className="bg-[#e6c6d8] border-0 text-black px-4 py-2 rounded-md mt-4">View Details</button>
                       </Link>
                     </div>
                   </div>
