@@ -5,32 +5,46 @@ import Blog from "../Pages/Blog/Blog";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import NotFound from "../Pages/NotFound/NotFound";
+import Details from "../Pages/Home/Categories/Details/Details";
+import Alltoys from "../Pages/AllToys/Alltoys";
 
 
 const router = createBrowserRouter([
-    {
-      path: "/",
-      element:<Main></Main>,
-      errorElement:<NotFound></NotFound>,
-      children:[
-        {
-          path:"/",
-          element:<Home></Home>
-        },
-        {
-          path:"/blog",
-          element:<Blog></Blog>
-        },
-        {
-          path:"/login",
-          element:<Login></Login>
-        },
-        {
-          path:"/register",
-          element:<Register></Register>
-        }
-      ]
-    },
-  ]);
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement: <NotFound></NotFound>,
+    children: [
+      {
+        path: "/",
+        element: <Home></Home>,
+        loader: () => fetch("http://localhost:3500/carToys")
+      },
+     
+      {
+        path: "/allToys",
+        element: <Alltoys></Alltoys>,
+        loader: () => fetch("http://localhost:3500/carToys")
+      },
+      {
+        path: "/alltoys/:id",
+        element:<Details></Details>,
+        loader:({params}) => fetch(`http://localhost:3500/carToys/${params.id}`)
+      },
+      {
+        path: "/blog",
+        element: <Blog></Blog>
+      },
+      {
+        path: "/login",
+        element: <Login></Login>
+      },
+      {
+        path: "/register",
+        element: <Register></Register>
+      }
+    ]
+  },
+]);
 
-  export default router;
+export default router;
