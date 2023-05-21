@@ -1,22 +1,23 @@
-import React, { useContext, useEffect, useState } from 'react';
+import  { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Toy from './Toy';
 import Swal from 'sweetalert2';
+import useTitle from '../../hooks/useTitle';
 
-
+ 
 const MyToys = () => {
+    useTitle("My Toys")
     const { user } = useContext(AuthContext);
     const [myToys, setMyToys] = useState([]);
     const [control, setControl] = useState(true)
 
     useEffect(() => {
-        fetch(`http://localhost:3500/myToys?email=${user.email}`)
+        fetch(`https://toy-car-wonderland-server.vercel.app/myToys?email=${user.email}`)
             .then(res => res.json())
             .then(data => setMyToys(data))
     }, [control]);
 
     const handleDelete = _id => {
-        console.log(_id)
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -27,7 +28,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3500/myToys/${_id}`, {
+                fetch(`https://toy-car-wonderland-server.vercel.app/myToys/${_id}`, {
                     method: "DELETE"
                 })
                     .then(res => res.json())

@@ -22,22 +22,22 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:3500/carToys")
+        loader: () => fetch("https://toy-car-wonderland-server.vercel.app/carToys")
       },
       {
         path: "categories/:id",
         element: <PrivateRoute><Details></Details></PrivateRoute>,
-        loader: ({ params }) => fetch(`http://localhost:3500/carToys/${params.id}`)
+        loader: ({ params }) => fetch(`https://toy-car-wonderland-server.vercel.app/carToys/${params.id}`)
       },
       {
         path: "/allToys",
         element: <Alltoys></Alltoys>,
-        loader: () => fetch("http://localhost:3500/carToys")
+        loader: () => fetch("https://toy-car-wonderland-server.vercel.app/carToys")
       },
       {
         path: "/alltoys/:id",
         element:<PrivateRoute><Details></Details></PrivateRoute>,
-        loader:({params}) => fetch(`http://localhost:3500/carToys/${params.id}`)
+        loader:({params}) => fetch(`https://toy-car-wonderland-server.vercel.app/carToys/${params.id}`)
       },
       {
         path: "/blog",
@@ -62,7 +62,7 @@ const router = createBrowserRouter([
       {
         path:"/update/:id",
         element:<Update></Update>,
-        loader:({params}) => fetch(`http://localhost:3500/update/${params.id}`)
+        loader:({params}) => fetch(`https://toy-car-wonderland-server.vercel.app/update/${params.id}`)
       }
     ]
   },

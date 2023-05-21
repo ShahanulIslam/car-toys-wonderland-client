@@ -1,6 +1,9 @@
 import Swal from 'sweetalert2'
+import useTitle from '../../hooks/useTitle';
 
 const AddToys = () => {
+    useTitle("AdaToys");
+
     const handleAddToy = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -17,7 +20,7 @@ const AddToys = () => {
             category, picture, name, price, rating, quantity, seller, description, seller_email
         }
         console.log(addToy)
-        fetch("http://localhost:3500/carToys", {
+        fetch("https://toy-car-wonderland-server.vercel.app/carToys", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

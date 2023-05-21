@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import img from "../../assets/img/404.png"
+import useTitle from "../../hooks/useTitle";
 const NotFound = () => {
+    useTitle("Not Found")
     return (
         <div className='h-[450px] mt-36'>
             <div className='flex justify-center items-center text-8xl font-bold'>
