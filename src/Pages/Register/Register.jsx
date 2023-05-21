@@ -17,11 +17,13 @@ const Register = () => {
         const photoUrl = form.photo.value;
         const email = form.email.value;
         const password = form.password.value;
-        // console.log(name, photo, email, password)
+        if (password.length < 6) {
+            toast("The password is less than 6 characters");
+            return;
+        }
 
         createUser(email, password, displayName, photoUrl)
             .then((result) => {
-                // User created successfully, update profile
                 const loggedUser = result.user;
                 return updateProfile(loggedUser, {
                     displayName: displayName,
@@ -86,13 +88,12 @@ const Register = () => {
                         <div className="form-control mt-6">
                             <button className="btn bg-[#e6c6d8] border-0 text-black hover:text-white">Register</button>
                         </div>
+                        <p className="text-center"><small>Already have an account? <Link to="/login">Login</Link> </small></p>
                     </form>
-                    <div className="divider">OR</div>
+                    <div className="divider mt-0">OR</div>
                     <div className="form-control mx-6">
-
                         <button onClick={handleGoogleLogin} className="btn bg-[#e6c6d8] border-0 text-black hover:text-white"><FaGoogle size={15} className="mr-2"></FaGoogle> Google Sign-in</button>
                     </div>
-                    <p className="text-center my-3"><small>Already have an account? <Link to="/login">Login</Link> </small></p>
                 </div>
             </div>
         </div>

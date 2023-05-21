@@ -42,6 +42,9 @@ const AddToys = () => {
     }
     return (
         <div>
+            <div className='text-center my-5'>
+                <h2 className='text-3xl font-bold'>Add Toy Here </h2>
+            </div>
             <form onSubmit={handleAddToy} className="card-body">
                 <div className="flex w-3/5 mx-auto gap-4">
                     <div className="form-control w-1/2">

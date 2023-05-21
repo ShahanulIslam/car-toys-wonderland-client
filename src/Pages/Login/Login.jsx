@@ -8,7 +8,7 @@ import useTitle from "../../hooks/useTitle";
 
 
 const Login = () => {
-    
+
     useTitle("Login")
     const { signIn, googleLogin } = useContext(AuthContext);
 
@@ -70,12 +70,12 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <input className="btn bg-[#e6c6d8] border-0 text-black hover:text-white" type="submit" value="Login" />
                         </div>
+                        <p className="text-center"><small>New to Toy car wonderland? <Link to="/register">Register</Link></small></p>
                     </form>
-                    <div className="divider">OR</div>
+                    <div className="divider mt-0">OR</div>
                     <div className="form-control mx-6 ">
                         <button onClick={handleGoogleLogin} className="btn bg-[#e6c6d8] border-0 text-black hover:text-white"><FaGoogle size={15} className="mr-2"></FaGoogle> Google Sign-in</button>
                     </div>
-                    <p className="text-center my-3"><small>New to Toy car wonderland? <Link to="/register">Register</Link></small></p>
                 </div>
             </div>
         </div>
