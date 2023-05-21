@@ -4,7 +4,7 @@ const Reviews = () => {
         <div>
             <section className="bg-white">
                 <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
-                    <h2 className="text-center text-4xl font-bold tracking-tight sm:text-5xl">
+                    <h2 className="text-center text-4xl font-bold tracking-tight sm:text-2xl">
                         Read trusted reviews from our customers
                     </h2>
 

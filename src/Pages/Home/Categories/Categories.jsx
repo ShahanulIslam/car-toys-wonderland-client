@@ -15,7 +15,7 @@ const Categories = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 800,
+      duration: 1000,
       easing: 'ease-out',
       once: true,
     });
@@ -46,7 +46,7 @@ const Categories = () => {
 
         </TabList>
         {categories.map((category) => (
-          <TabPanel key={category} data-aos="ease-in-quad">
+          <TabPanel key={category} data-aos="zoom-in">
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
               {toys
                 .filter((toy) => category === 'All' || toy.category === category)
