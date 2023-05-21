@@ -56,7 +56,7 @@ const Alltoys = () => {
                     </select>
                 </div>
                 <table className="table w-full">
-                    <thead>
+                    <thead> 
                         <tr className='text-center'>
                             <th>Image</th>
                             <th>Seller Name</th>

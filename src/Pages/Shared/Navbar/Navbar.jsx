@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../../assets/img/logo.png"
+import logo from "../../../assets/img/111111.png"
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 
@@ -32,8 +32,9 @@ const Navbar = () => {
                         {navItems}
                     </ul>
                 </div>
-                <div>
-                    <img className="w-2/5" src={logo} alt="" />
+                <div className="flex gap-2 items-center">
+                    <img className="w-3/12" src={logo} alt="" />
+                    <h2 className="md:text-2xl hidden md:block font-bold">ToyCarWonderland</h2>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">

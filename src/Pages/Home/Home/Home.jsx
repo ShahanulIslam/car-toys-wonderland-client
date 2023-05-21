@@ -2,8 +2,8 @@ import useTitle from "../../../Hook/useTitle";
 import Banner from "../Banner/Banner";
 import Categories from "../Categories/Categories";
 import Gallery from "../Gallery/Gallery";
+import Newsletter from "../Newsletter/Newsletter";
 import Reviews from "../Reviews/Reviews";
-import Slider from "../Slider/Slider";
 
 const Home = () => {
     useTitle("Home")
@@ -13,8 +13,8 @@ const Home = () => {
             <Banner></Banner>
             <Gallery></Gallery>
             <Categories></Categories>
-            <Slider></Slider>
             <Reviews></Reviews>
+            <Newsletter></Newsletter>
         </div>
     );
 };
