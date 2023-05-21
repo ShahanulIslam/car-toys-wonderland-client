@@ -15,7 +15,7 @@ const Categories = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 800,
       easing: 'ease-out',
       once: true,
     });
