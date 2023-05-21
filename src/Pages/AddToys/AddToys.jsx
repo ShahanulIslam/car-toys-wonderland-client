@@ -1,5 +1,5 @@
 import Swal from 'sweetalert2'
-import useTitle from '../../hooks/useTitle';
+import useTitle from '../../Hook/useTitle';
 
 const AddToys = () => {
     useTitle("AdaToys");

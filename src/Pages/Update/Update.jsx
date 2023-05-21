@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import useTitle from '../../hooks/useTitle';
+import useTitle from '../../Hook/useTitle';
 
 const Update = () => {
     useTitle("Update")

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import Toys from './Toys';
-import useTitle from '../../hooks/useTitle';
+import useTitle from '../../Hook/useTitle';
 
 const Alltoys = () => {
     useTitle("All Toys")

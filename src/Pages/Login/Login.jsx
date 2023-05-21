@@ -4,7 +4,7 @@ import { AuthContext } from "../../Providers/AuthProvider";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FaGoogle } from "react-icons/fa";
-import useTitle from "../../hooks/useTitle";
+import useTitle from "../../Hook/useTitle";
 
 
 const Login = () => {

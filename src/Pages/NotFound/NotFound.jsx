@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import img from "../../assets/img/404.png"
-import useTitle from "../../hooks/useTitle";
+import useTitle from "../../Hook/useTitle";
+
 const NotFound = () => {
     useTitle("Not Found")
     return (
